@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         lifecycleScope.launch {
-            delay(150)
+            delay(500)
             checkLogin()
         }
     }
