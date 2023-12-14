@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/container_rounded_top"
+    android:padding="14dp"
+    tools:context=".ui.main.AttendenceBottomSheet">
+
+    <TextView
+        android:id="@+id/tv_tittle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Izin" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_freeText"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_edit_tag_location"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@drawable/cursor_grey"
+        android:textIsSelectable="false"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tittle"
+        tools:hint="Masukkan Alasan" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_attendance"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/progress_color"
+        android:enabled="false"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_freeText">
+
+        <TextView
+            android:id="@+id/tv_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            tools:text="Submit" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
