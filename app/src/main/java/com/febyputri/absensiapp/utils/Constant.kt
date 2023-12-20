@@ -1,7 +1,7 @@
 package com.febyputri.absensiapp.utils
 
 object Constant {
-    const val BASE_URL = "http://192.168.43.94:5002/"
+    const val BASE_URL = "http://192.168.1.17:5002/"
     const val USERID = "user_id"
     const val USERNAME = "user_name"
     const val USER_EMAIL = "user_email"
