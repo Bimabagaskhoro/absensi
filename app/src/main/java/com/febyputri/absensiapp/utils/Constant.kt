@@ -20,4 +20,6 @@ object Constant {
     const val TV_TOOLS = "Fokus bekerja-mu dari jam 08:00 - 17:00"
     const val TV_TOOLS_2 = "Semangat Bekerja Ya!"
     const val LOGOUT = "Logout"
+    const val ONBOARDING = "OnBoarding"
+    const val MY_SHARED_PREF_ONBOARDING = "MySharedPref"
 }

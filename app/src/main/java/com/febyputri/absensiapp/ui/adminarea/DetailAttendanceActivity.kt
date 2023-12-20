@@ -12,10 +12,12 @@ import com.febyputri.absensiapp.base.stateUI
 import com.febyputri.absensiapp.databinding.ActivityDetailAttendanceBinding
 import com.febyputri.absensiapp.model.CheckAttendanceResponse
 import com.febyputri.absensiapp.ui.adminarea.adapter.ListAttendence
+import com.febyputri.absensiapp.utils.Constant
 import com.febyputri.absensiapp.utils.showToastError
 import com.febyputri.absensiapp.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.Locale.filter
 
 @AndroidEntryPoint
 class DetailAttendanceActivity : AppCompatActivity() {
@@ -44,8 +46,19 @@ class DetailAttendanceActivity : AppCompatActivity() {
             )
             state
                 .onLoading {}
-                .onSuccess {
-                    adapter.submitList(filterDataByUserId(it.data, dataParse))
+                .onSuccess { response ->
+                    adapter.submitList(filterDataByUserId(response.data, dataParse))
+                    val attendanceData = response.data?.filter {
+                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.ATTENDANCE, true)
+                    }?.size
+                    val sickData = response.data?.filter {
+                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.SICK_LEFT, true)
+                    }?.size
+                    val paidLeftData = response.data?.filter {
+                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.PAID_LEFT, true)
+                    }?.size
+                    val stringOk = "$attendanceData ${Constant.ATTENDANCE}, $sickData ${Constant.SICK_LEFT}, $paidLeftData ${Constant.PAID_LEFT}"
+                    binding.tvCount.text = stringOk
                 }
                 .onError {
                     showToastError()

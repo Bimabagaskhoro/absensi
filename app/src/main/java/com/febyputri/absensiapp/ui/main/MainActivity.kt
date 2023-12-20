@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             LocalData.clearData(this@MainActivity)
             val intent = Intent(this@MainActivity, SplashScreenActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

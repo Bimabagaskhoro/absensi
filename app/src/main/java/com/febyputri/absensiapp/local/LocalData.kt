@@ -34,6 +34,28 @@ object LocalData {
         editor.apply()
     }
 
+    fun saveDataOnBoarding(context: Context, key: String, value: String) {
+        val sharedPreferences =
+            context.getSharedPreferences(Constant.MY_SHARED_PREF_ONBOARDING, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString(key, value)
+        editor.apply()
+    }
+
+    fun getDataOnBoarding(context: Context, key: String, defaultValue: String): String? {
+        val sharedPreferences =
+            context.getSharedPreferences(Constant.MY_SHARED_PREF_ONBOARDING, Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key, defaultValue)
+    }
+
+    fun clearDataOnBoarding(context: Context) {
+        val sharedPreferences =
+            context.getSharedPreferences(Constant.MY_SHARED_PREF_ONBOARDING, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+    }
+
     fun isActionAllowed(context: Context): Boolean {
         val lastActionTime = getLastActionTime(context)
         val currentTime = Calendar.getInstance().time
