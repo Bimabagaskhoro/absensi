@@ -48,17 +48,17 @@ class DetailAttendanceActivity : AppCompatActivity() {
                 .onLoading {}
                 .onSuccess { response ->
                     adapter.submitList(filterDataByUserId(response.data, dataParse))
-//                    val attendanceData = response.data?.filter {
-//                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.ATTENDANCE, true)
-//                    }?.size
-//                    val sickData = response.data?.filter {
-//                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.SICK_LEFT, true)
-//                    }?.size
-//                    val paidLeftData = response.data?.filter {
-//                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.PAID_LEFT, true)
-//                    }?.size
-//                    val stringOk = "$attendanceData ${Constant.ATTENDANCE}, $sickData ${Constant.SICK_LEFT}, $paidLeftData ${Constant.PAID_LEFT}"
-//                    binding.tvCount.text = stringOk
+                    val attendanceData = response.data?.filter {
+                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.ATTENDANCE, true)
+                    }?.size
+                    val sickData = response.data?.filter {
+                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.SICK_LEFT, true)
+                    }?.size
+                    val paidLeftData = response.data?.filter {
+                        it?.status?.split(",")?.get(0)?.trim().equals(Constant.PAID_LEFT, true)
+                    }?.size
+                    val stringOk = "$attendanceData ${Constant.ATTENDANCE}, $sickData ${Constant.SICK_LEFT}, $paidLeftData ${Constant.PAID_LEFT}"
+                    binding.tvCount.text = stringOk
                 }
                 .onError {
                     showToastError()

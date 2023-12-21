@@ -15,27 +15,27 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ApiClient {
-    @POST("/api/absensi/v1/login")
+    @POST("api/absensi/v1/login")
     suspend fun login(
         @Body request: LoginRequest
     ): LoginResponse
 
-    @POST("/api/absensi/v1/register")
+    @POST("api/absensi/v1/register")
     suspend fun register(
         @Body request: RegisterRequest
     ): RegisterResponse
 
-    @POST("/api/absensi/v1/absen")
+    @POST("api/absensi/v1/absen")
     suspend fun attendance(
         @Body request: AttendanceRequest
     ): AttendanceResponse
 
-    @GET("/api/absensi/v1/kehadiran")
+    @GET("api/absensi/v1/kehadiran")
     suspend fun getListAttendance(
         @Query("userID") userId: Int
     ): CheckAttendanceResponse
 
-    @GET("/api/absensi/v1/users")
+    @GET("api/absensi/v1/users")
     suspend fun checkUser(): CheckUserResponse
 
 
