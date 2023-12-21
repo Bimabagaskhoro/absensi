@@ -20,7 +20,7 @@ interface ApiClient {
         @Body request: LoginRequest
     ): LoginResponse
 
-    @POST("api/absensi/v1/register")
+    @POST("/api/absensi/v1/register")
     suspend fun register(
         @Body request: RegisterRequest
     ): RegisterResponse
